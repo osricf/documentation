@@ -1,0 +1,113 @@
+/** Component: Card */
+
+@import '../../scss/_mixins.scss';
+
+:root {
+  --strapi-card-background: var(--strapi-neutral-0);
+  --strapi-card-border-color: #EDEDFF;
+  --strapi-card-border-radius: 10px;
+  --strapi-card-content-delimited: 395px;
+  --strapi-card-justify-content: center;
+  --strapi-card-text-align: center;
+  --strapi-card-gap: var(--strapi-spacing-1);
+  --strapi-card-px: var(--strapi-spacing-8);
+  --strapi-card-py: var(--strapi-spacing-8);
+  --strapi-card-title-color: #1D1B84;
+  --strapi-card-title-font-size: 17px;
+  --strapi-card-title-font-weight: 700;
+  --strapi-card-title-line-height: 26px;
+  --strapi-card-description-color: #4E6294;
+}
+
+.card {
+  background: var(--strapi-card-background);
+  border-radius: var(--strapi-card-border-radius);
+  border: 1px solid var(--strapi-card-border-color);
+  display: flex;
+  flex-direction: column;
+  gap: var(--strapi-card-gap);
+  align-items: stretch;
+  justify-content: var(--strapi-card-justify-content);
+  text-align: var(--strapi-card-text-align);
+  padding: var(--strapi-card-py) var(--strapi-card-px);
+
+  &--cloud {
+    --strapi-card-background:
+      radial-gradient(
+        133.72% 136.4% at 42.35% 0%,
+        #121170 45.12%,
+        #0B0B47 100%
+      ),
+      linear-gradient(
+        0deg,
+        #FFFFFF,
+        #FFFFFF
+      ),
+      #FFFFFF
+    ;
+    --strapi-card-title-color: #fff;
+    --strapi-card-description-color: #fff;
+  }
+
+  &--cta {
+    --ifm-link-color: currentColor;
+    --strapi-card-background:
+      linear-gradient(
+        309.19deg,
+        rgba(168, 166, 255, 0.15) 1.16%,
+        rgba(226, 225, 255, 0.15) 69.23%
+      ),
+      #FFFFFF
+    ;
+    --strapi-card-text-align: left;
+    --strapi-card-gap: var(--strapi-spacing-2);
+    --strapi-card-title-font-size: 21px;
+    --strapi-card-title-font-weight: 600;
+    --strapi-card-title-line-height: 28px;
+    --ifm-link-decoration: none;
+    --ifm-link-hover-decoration: none;
+  }
+
+  &--content-delimited {
+    .card {
+      &__title,
+      &__description {
+        width: 100%;
+        max-width: var(--strapi-card-content-delimited);
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+  }
+
+  &__title,
+  &__description {
+    margin: 0;
+  }
+
+  &__title {
+    color: var(--strapi-card-title-color);
+    font-size: var(--strapi-card-title-font-size);
+    font-weight: var(--strapi-card-title-font-weight);
+    line-height: var(--strapi-card-title-line-height);
+
+    &:after {
+      content: none;
+    }
+  }
+
+  &__description {
+    --ifm-link-color: var(--strapi-card-description-color);
+    --ifm-link-decoration: underline;
+
+    color: var(--strapi-card-description-color);
+    opacity: 0.8;
+  }
+}
+
+/** Dark mode */
+@include dark {
+  --strapi-card-border-color: var(--strapi-neutral-150);
+  --strapi-card-title-color: var(--strapi-netral-1000);
+  --strapi-card-description-color: var(--strapi-netral-1000);
+}

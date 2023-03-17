@@ -1,0 +1,38 @@
+/** Page: Home */
+@import '../../scss/_mixins.scss';
+
+:root {
+  --strapi-home-faded-bg-display: block;
+}
+
+.home {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: var(--strapi-spacing-4);
+
+  &:before {
+    content: " ";
+    display: var(--strapi-home-faded-bg-display);
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 448px;
+    opacity: 0.5;
+    background: linear-gradient(
+      180deg,
+      rgba(215, 214, 255, 0.67) 0%,
+      rgba(0, 0, 0, 0) 90%
+    );
+  }
+}
+
+/** Dark mode */
+@include dark {
+  --strapi-home-faded-bg-display: none;
+}
